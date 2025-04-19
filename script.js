@@ -1,4 +1,4 @@
-const apiKey = "YOUR_OPENAI_API_KEY"; // Replace this with your OpenAI API key
+const apiKey = "YOUR_OPENAI_API_KEY"; // Replace with your OpenAI API key
 
 function getRecipe() {
   const input = document.getElementById("ingredients").value;
@@ -17,19 +17,13 @@ function getRecipe() {
   })
   .then(res => res.json())
   .then(data => {
+    if (!data.choices || !data.choices[0]) {
+      throw new Error("No response from AI. Check your API key or input.");
+    }
     document.getElementById("response").innerText =
       data.choices[0].message.content.trim();
   })
   .catch(err => {
     document.getElementById("response").innerText = "Error: " + err.message;
   });
-}
-
-function startVoice() {
-  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-  recognition.lang = "hi-IN";
-  recognition.onresult = function(event) {
-    document.getElementById("ingredients").value = event.results[0][0].transcript;
-  };
-  recognition.start();
 }
