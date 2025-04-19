@@ -1,4 +1,4 @@
-const apiKey = "YOUR_OPENAI_API_KEY"; // Replace with your OpenAI API key
+const apiKey = ""; // Replace with your OpenAI API key
 
 function getRecipe() {
   const input = document.getElementById("ingredients").value;
