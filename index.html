@@ -1,26 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Snake Game</title>
-	<link rel="stylesheet" href="style.css">
+  <title>Fridge Friend</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; }
+    h1 { text-align: center; }
+    textarea { width: 100%; height: 80px; margin-top: 10px; }
+    button { width: 100%; padding: 10px; margin-top: 10px; font-size: 16px; }
+    #response { margin-top: 20px; white-space: pre-wrap; background: #f4f4f4; padding: 10px; border-radius: 5px; }
+  </style>
 </head>
 <body>
-	<div id="game-container">
-		<canvas id="gc" class="game-canvas" width="400" height="400"></canvas>
-	</div>
-	<div class="keys">
-	  <a class="up arr" onclick="Snake.action('up')">
-	    <i class="chevron up"></i></a>
-	  <br />
-	  <a class="left arr" onclick="Snake.action('left')">
-	    <i class="chevron left"></i></a>
-	  <a class="down arr" onclick="Snake.action('down')">
-	    <i class="chevron down"></i></a>
-	  <a class="right arr" onclick="Snake.action('right')">
-	    <i class="chevron right"></i></a>
-	</div>
-	<script type="text/javascript" src="game.js"></script>
+  <h1>Fridge Friend</h1>
+  <p>Tell us what's in your kitchen (e.g., aloo, pyaaz):</p>
+  <textarea id="ingredients" placeholder="Type or speak ingredients..."></textarea>
+  <button onclick="startVoice()">🎤 Speak</button>
+  <button onclick="getRecipe()">Find Recipe</button>
+  <div id="response"></div>
+
+  <!-- TEMP TESTING SCRIPT -->
+  <script>
+    document.getElementById("response").textContent = "Page loaded successfully!";
+  </script>
+
+  <!-- Your actual script -->
+  <script src="script.js"></script>
 </body>
 </html>
